@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="darkgray">#202122</color>
+    <color name="lightgray">#989CA0</color>
+    <color name="orange">#FF6F00</color>
+    <color name="darkorange">#CC7A02</color>
+
+    <color name="bottom_navigation_icon_color">#FF0000</color>
+    <color name="bottom_navigation_text_color">#0000FF</color>
+    <color name="bottom_navigation_active_text_color">#240800</color>
+    <color name="bottom_navigation_inactive_text_color">#CCCCCC</color>
+    <color name="toolbarTitleColor">#A8A3A2</color>
+    <color name="toolbarColor">#FFFFFF</color>
+</resources>

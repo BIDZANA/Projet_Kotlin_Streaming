@@ -1,0 +1,54 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Projet_Koltin_movies" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.Projet_Koltin_movies" parent="Base.Theme.Projet_Koltin_movies" />
+
+    <!-- Créer le composant text par défaut -->
+    <style name="DefaultTextStyle">
+        <item name="android:textColor">@color/lightgray</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/kanit</item>
+    </style>
+
+    <!-- Style pour le vote -->
+    <style name="VoteStyle">
+        <item name="android:textColor">@color/lightgray</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/kanit</item>
+    </style>
+
+    <!-- Créer le composant sous-titre par défaut -->
+    <style name="SubtitleTextStyle" parent="DefaultTextStyle">
+        <item name="android:textColor">@color/darkgray</item>
+    </style>
+
+    <!-- Créer le composant titre par défaut -->
+    <style name="DefaultTitleStyle" parent="SubtitleTextStyle">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <!-- Créer un style pour la bottom navigation view -->
+    <style name="BottomNavigationStyle" parent="Widget.Design.BottomNavigationView">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/kanit</item>
+        <item name="android:background">@color/darkorange</item>
+        <item name="itemIconTint">@color/bottom_navigation_icon_color</item>
+        <item name="itemTextColor">@color/bottom_navigation_text_color</item>
+        <item name="itemTextAppearanceActive">@style/BottomNavigationTextActive</item>
+        <item name="itemTextAppearanceInactive">@style/BottomNavigationTextInactive</item>
+    </style>
+
+    <style name="BottomNavigationTextActive">
+        <item name="android:textColor">@color/bottom_navigation_active_text_color</item>
+    </style>
+
+    <style name="BottomNavigationTextInactive">
+        <item name="android:textColor">@color/bottom_navigation_inactive_text_color</item>
+    </style>
+
+</resources>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "160174205266",
+    "firebase_url": "https://best-stream-default-rtdb.firebaseio.com",
+    "project_id": "best-stream",
+    "storage_bucket": "best-stream.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160174205266:android:01a67fbf1228c80b3af28b",
+        "android_client_info": {
+          "package_name": "fr.epf.bidzanafapo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "160174205266-07jrp9tatan1civleto8qok1bc61oarf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7tBeDtU4iroGsHD1PEtGlkaDs4fhjCnM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "160174205266-07jrp9tatan1civleto8qok1bc61oarf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

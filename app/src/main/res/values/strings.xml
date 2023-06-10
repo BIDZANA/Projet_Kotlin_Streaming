@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Best Stream</string>
+
+    <!--Bottom Navigation Bar-->
+    <string name="bottom_home_item">Accueil</string>
+    <string name="bottom_favorite_item">Favoris</string>
+    <string name="bottom_scanner_item">Scanner</string>
+
+    <!--Page Home-->
+    <string name="home_page_title">Populaires</string>
+    <string name="home_page_last_films_section">Films</string>
+    <string name="home_page_film_title">Titre du film</string>
+    <string name="home_page_film_release_date">Année de sortie</string>
+    <string name="home_page_film_gender">Genre</string>
+
+    <!--Page des Favoris-->
+    <string name="favorite_page_title">Mes Favoris</string>
+    <string name="favorite_page_film_title">Titre du film</string>
+    <string name="favorite_page_film_release_date">Année de sortie</string>
+    <string name="favorite_page_film_author">Auteur du film</string>
+
+    <!--Page du scanner-->
+    <string name="scanner_page_title">Scanner de QR-Code</string>
+
+    <!--Page fiche d'un film-->
+    <string name="details_page_title">Fiche de film</string>
+    <string name="details_page_film_releaseDate_title">Date de sortie</string>
+    <string name="details_page_film_releaseDate_subtitle">2023–01–15</string>
+    <string name="details_page_film_originalTitle_title">Titre original</string>
+    <string name="details_page_film_originalTitle_subtitle">Movie title</string>
+    <string name="details_page_film_overview_title">Résumé</string>
+    <string name="details_page_film_overview_subtitle">description du film</string>
+    <string name="details_page_film_popularity_title">Popularité</string>
+    <string name="details_page_film_popularity_subtitle">7.0</string>
+    <string name="details_page_film_voteCount_title">Nombre de votes</string>
+    <string name="details_page_film_voteCount_subtitle">5687</string>
+    <string name="details_page_film_note_title">Note</string>
+    <string name="details_page_film_voteAverage_title">Moyenne des votes</string>
+    <string name="details_page_film_voteAverage_subtitle">10.43</string>
+    <string name="details_page_film_original_language_title">Langue d\'origine</string>
+    <string name="scan">Lancer le scan</string>
+    <string name="search_hint">Rechercher...</string>
+    <string name="search_toolbar_title">Recherche</string>
+    <string name="search">Rechercher</string>
+    <string name="movie_image">Movie Image</string>
+
+
+</resources>
