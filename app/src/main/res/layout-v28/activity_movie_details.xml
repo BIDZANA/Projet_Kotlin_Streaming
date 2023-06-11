@@ -155,17 +155,12 @@
 
 
     </LinearLayout>
-
     <View
         android:id="@+id/view_separation"
         android:layout_width="match_parent"
-        android:layout_height="8dp"
+        android:layout_height="1dp"
         android:visibility="visible"
-        android:layout_margin="@dimen/itemMarging"
-        app:layout_constraintBottom_toTopOf="@+id/suggestions_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+        android:outlineAmbientShadowColor="@color/lightgray"/>
     <TextView
         android:id="@+id/suggestions_title"
         style="@style/DefaultTitleStyle"

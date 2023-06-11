@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
             LinearLayoutManager(this, GridLayoutManager.HORIZONTAL, false)
         recyclerViewH.layoutManager = GridLayoutManager(this, 1, GridLayoutManager.HORIZONTAL, false)
         recyclerViewH.adapter = MovieAdapterHorizontal(this@MainActivity, listMovies)
+        recyclerViewH.addItemDecoration(MovieItemDecoration())
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 

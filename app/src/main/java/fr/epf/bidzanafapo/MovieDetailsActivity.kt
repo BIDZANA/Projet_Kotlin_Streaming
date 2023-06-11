@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import fr.epf.bidzanafapo.adapter.MovieAdapterVertical
+import fr.epf.bidzanafapo.adapter.MovieItemDecoration
 import fr.epf.bidzanafapo.network.MovieApiService
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
@@ -47,6 +48,7 @@ class MovieDetailsActivity : AppCompatActivity() {
             LinearLayoutManager(this, GridLayoutManager.VERTICAL, false)
         recyclerView.layoutManager = GridLayoutManager(this, GridLayoutManager.VERTICAL)
         recyclerView.adapter = MovieAdapterVertical(this@MovieDetailsActivity, RecommandationList)
+        recyclerView.addItemDecoration(MovieItemDecoration())
 
         val backButton = findViewById<ImageView>(R.id.backButton)
         val favoriteButton = findViewById<ImageView>(R.id.FavButton)
