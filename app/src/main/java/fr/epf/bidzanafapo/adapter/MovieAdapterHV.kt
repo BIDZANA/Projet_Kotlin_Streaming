@@ -12,13 +12,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.squareup.picasso.Picasso
-import fr.epf.bidzanafapo.Movie
+import fr.epf.bidzanafapo.MovieModel
 import fr.epf.bidzanafapo.MovieDetailsActivity
 import fr.epf.bidzanafapo.R
 
 class MovieViewHolder(view: View) : ViewHolder(view)
 
-class MovieAdapterVertical(val activity: Context, val movieList: List<Movie>) :
+class MovieAdapterVertical(val activity: Context, val movieList: List<MovieModel>) :
     RecyclerView.Adapter<MovieViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
@@ -59,7 +59,7 @@ class MovieAdapterVertical(val activity: Context, val movieList: List<Movie>) :
 
 }
 
-class MovieAdapterHorizontal(val activity: Context, val movieList: List<Movie>) :
+class MovieAdapterHorizontal(val activity: Context, val movieList: List<MovieModel>) :
     RecyclerView.Adapter<MovieViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {

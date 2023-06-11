@@ -26,8 +26,8 @@ import fr.epf.bidzanafapo.adapter.MovieItemDecoration
 class MainActivity : AppCompatActivity() {
 
     private val apiKey = "9898580a411c9cc7d443a89ae37ca0ee"
-    private var listMovies: ArrayList<Movie> = arrayListOf()
-    private var listMovie2: ArrayList<Movie> = arrayListOf()
+    private var listMovies: ArrayList<MovieModel> = arrayListOf()
+    private var listMovie2: ArrayList<MovieModel> = arrayListOf()
     private lateinit var searchView: SearchView
     private lateinit var searchButton: ImageView
 
@@ -106,7 +106,7 @@ class MainActivity : AppCompatActivity() {
             if (moviesResult != null) {
                 moviesResult.results.map {
                     listMovie2.add(
-                        Movie(
+                        MovieModel(
                             it.adult,
                             it.overview,
                             it.release_date,
@@ -120,7 +120,7 @@ class MainActivity : AppCompatActivity() {
                         )
                     )
                 }
-                Log.d("liste film: ", listMovie2.toString())
+                Log.d("Résultat: ", listMovie2.toString())
             }
         }
         val result = myGlobalVar.await()
@@ -146,11 +146,9 @@ class MainActivity : AppCompatActivity() {
             val service = retrofit.create(MovieApiService::class.java)
             val moviesResult = service.getPopularMovies(apiKey)
 
-            Log.d("Movies : ", moviesResult.toString())
-
             moviesResult.results.map {
                 listMovies.add(
-                    Movie(
+                    MovieModel(
                         it.adult,
                         it.overview,
                         it.release_date,
@@ -164,65 +162,10 @@ class MainActivity : AppCompatActivity() {
                     )
                 )
             }
-            Log.d("liste film: ", listMovies.toString())
+            Log.d("Films populaires récupérés: ", listMovies.toString())
         }
         val result = myGlobalVar.await()
         println(result)
     }
-
 }
-/*
-
-
-
-   override fun onCreate(savedInstanceState: Bundle?) {
-       super.onCreate(savedInstanceState)
-       setContentView(R.layout.activity_main)
-
-       val navigationBar = findViewById<BottomNavigationView>(R.id.navigation_bar_view)
-       navigationBar.setOnNavigationItemSelectedListener { menuItem ->
-           when (menuItem.itemId) {
-               R.id.home_page -> {
-                   startActivity(Intent(this, MainActivity::class.java))
-                   true
-               }
-               R.id.favorite_page -> {
-                   startActivity(Intent(this, FavoriteActivity::class.java))
-                   true
-               }
-               R.id.scanner_page -> {
-                   startActivity(Intent(this, QRCodeActivity::class.java))
-                   true
-               }
-               else -> false
-           }
-       }
-
-       val repo = MovieRepository()
-       repo.updateData {
-           loadRecyclerViews()
-       }
-   }
-
-   private fun loadRecyclerViews() {
-       val horizontalRecyclerView = findViewById<RecyclerView>(R.id.horizontal_recycle_view)
-       horizontalRecyclerView.layoutManager =
-           LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-       horizontalRecyclerView.adapter = MovieAdapter(
-           this,
-           movieList,
-           R.layout.item_horizontal_movie
-       )
-
-       val verticalRecyclerView = findViewById<RecyclerView>(R.id.vertical_recycle_view)
-       verticalRecyclerView.layoutManager =
-           LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-       verticalRecyclerView.adapter = MovieAdapter(
-           this,
-           movieList,
-           R.layout.item_vertical_movie
-       )
-       verticalRecyclerView.addItemDecoration(MovieItemDecoration())
-   }
-}*/
 

@@ -25,7 +25,7 @@ class FavoriteActivity : AppCompatActivity() {
     private val apiKey = "9898580a411c9cc7d443a89ae37ca0ee"
     lateinit var recyclerView: RecyclerView
     private var favoris = mutableListOf<String>()
-    private var listefav: ArrayList<Movie> = arrayListOf()
+    private var listefav: ArrayList<MovieModel> = arrayListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favorite)
@@ -37,7 +37,7 @@ class FavoriteActivity : AppCompatActivity() {
         recyclerView.adapter = MovieAdapterVertical(this@FavoriteActivity, listefav)
         recyclerView.addItemDecoration(MovieItemDecoration())
         recupererFavoris()
-        Log.d("Movie search main: ", listefav.toString())
+        Log.d("MovieModel search main: ", listefav.toString())
         recyclerView.adapter?.notifyDataSetChanged()
 
         val navigationBar = findViewById<BottomNavigationView>(R.id.navigation_bar_view)
@@ -99,10 +99,10 @@ class FavoriteActivity : AppCompatActivity() {
 
             val service = retrofit.create(MovieApiService::class.java)
             for (id in favoris) {
-                val movieResult = service.finById(Integer.parseInt(id), apiKey) as Movie
+                val movieResult = service.finById(Integer.parseInt(id), apiKey) as MovieModel
                 listefav.add(movieResult)
             }
-            Log.d("Movie search fonction: ", listefav.toString())
+            Log.d("MovieModel search fonction: ", listefav.toString())
         }
         val result = myGlobalVar.await()
         println(result)

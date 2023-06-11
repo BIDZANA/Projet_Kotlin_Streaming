@@ -3,7 +3,6 @@ package fr.epf.bidzanafapo
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -30,7 +29,7 @@ class MovieDetailsActivity : AppCompatActivity() {
 
     private val apiKey = "9898580a411c9cc7d443a89ae37ca0ee"
     private lateinit var recyclerView: RecyclerView
-    private var RecommandationList: ArrayList<Movie> = arrayListOf()
+    private var RecommandationList: ArrayList<MovieModel> = arrayListOf()
 
     @SuppressLint("MissingInflatedId", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +37,7 @@ class MovieDetailsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_movie_details)
 
         val extras = intent.extras
-        val movieExtra = extras?.get("movie") as? Movie
+        val movieExtra = extras?.get("movie") as? MovieModel
         Log.d("film : ", movieExtra.toString())
         recyclerView = findViewById(R.id.recommand_movies_recyclerview)
 
@@ -81,28 +80,12 @@ class MovieDetailsActivity : AppCompatActivity() {
             this@MovieDetailsActivity.finish()
         }
 
-        /*
-        val home = findViewById<BottomNavigationView>(R.id.home_page)
-        val favorites = findViewById<BottomNavigationView>(R.id.favorite_page)
-        val scanner = findViewById<BottomNavigationView>(R.id.scanner_page)
-        home.setOnClickListener{
-            val intent = Intent(this@MovieDetailsActivity, MainActivity::class.java)
-            startActivity(intent)
-        }
-        favorites.setOnClickListener{
-            val intent = Intent(this@MovieDetailsActivity, FavoriteActivity::class.java)
-            startActivity(intent)
-        }
-        scanner.setOnClickListener{
-            val intent = Intent(this@MovieDetailsActivity, QRCodeActivity::class.java)
-            startActivity(intent)
-        }*/
     }
 
     @OptIn(DelicateCoroutinesApi::class)
     fun Recommandations() = runBlocking {
         val extras = intent.extras
-        val movieExtra = extras?.get("movie") as? Movie
+        val movieExtra = extras?.get("movie") as? MovieModel
         val myGlobalVar = GlobalScope.async {
 
             val httpLoggingInterceptor = HttpLoggingInterceptor().apply {
@@ -127,7 +110,7 @@ class MovieDetailsActivity : AppCompatActivity() {
             if (moviesResult != null) {
                 moviesResult.results.map {
                     RecommandationList.add(
-                        Movie(
+                        MovieModel(
                             it.adult,
                             it.overview,
                             it.release_date,

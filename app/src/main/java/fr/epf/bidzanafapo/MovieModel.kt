@@ -1,35 +1,43 @@
 package fr.epf.bidzanafapo
 
-class MovieModel() {
-    var id: String = ""
-    var title: String = ""
-    var releaseDate: String = ""
-    var overview: String = ""
-    var popularity: Double = 0.0
-    var voteAverage: Double = 0.0
-    var voteCount: Int = 0
-    var posterPath: String = ""
-    var liked: Boolean = false
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
-    constructor(
-        id: String,
-        title: String,
-        releaseDate: String,
-        overview: String,
-        popularity: Double,
-        voteAverage: Double,
-        voteCount: Int,
-        posterPath: String,
-        liked: Boolean
-    ) : this() {
-        this.id = id
-        this.title = title
-        this.releaseDate = releaseDate
-        this.overview = overview
-        this.popularity = popularity
-        this.voteAverage = voteAverage
-        this.voteCount = voteCount
-        this.posterPath = posterPath
-        this.liked = liked
+@Parcelize
+data class MovieModel(
+    var adult: Boolean?,
+    var overview: String?,
+    var release_date: String?,
+    var id: Int?,
+    var original_language: String?,
+    var title: String?,
+    var popularity: Double?,
+    var vote_count: Int?,
+    var vote_average: Double?,
+    var poster_path: String?
+) : Parcelable {
+    companion object {
+
+    }
+
+    class SearchMoviesResponse(
+        val page: Int,
+        val results: List<MovieModel>,
+        val total_results: Int,
+        val total_pages: Int
+    )
+
+    override fun toString(): String {
+        return "{" +
+                "adult='$adult', " +
+                "overview='$overview', " +
+                "release_date='$release_date', " +
+                "id='$id', " +
+                "original_language=$original_language, " +
+                "title=$title, " +
+                "popularity=$popularity, " +
+                "vote_count=$vote_count, " +
+                "vote_average=$vote_average, " +
+                "}"
     }
 }
