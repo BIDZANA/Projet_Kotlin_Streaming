@@ -3,8 +3,7 @@ package fr.epf.bidzanafapo
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.SearchView
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,20 +19,24 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import androidx.appcompat.widget.SearchView
+import fr.epf.bidzanafapo.adapter.MovieItemDecoration
+
 
 class MainActivity : AppCompatActivity() {
 
     private val apiKey = "9898580a411c9cc7d443a89ae37ca0ee"
-    lateinit var recyclerViewH: RecyclerView
-    lateinit var recyclerViewV: RecyclerView
     private var listMovies: ArrayList<Movie> = arrayListOf()
+    private var listMovie2: ArrayList<Movie> = arrayListOf()
+    private lateinit var searchView: SearchView
+    private lateinit var searchButton: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        recyclerViewH = findViewById(R.id.horizontal_recycle_view)
+        val recyclerViewH = findViewById<RecyclerView>(R.id.horizontal_recycle_view)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
+        getPopularMovies()
         recyclerViewH.layoutManager =
             LinearLayoutManager(this, GridLayoutManager.HORIZONTAL, false)
         recyclerViewH.layoutManager = GridLayoutManager(this, 1, GridLayoutManager.HORIZONTAL, false)
@@ -41,13 +44,15 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        val recyclerViewV = findViewById<RecyclerView>(R.id.vertical_recycle_view)
         recyclerViewV.layoutManager =
             LinearLayoutManager(this, GridLayoutManager.VERTICAL, false)
         recyclerViewV.layoutManager = GridLayoutManager(this, GridLayoutManager.VERTICAL)
-        recyclerViewV.adapter = MovieAdapterVertical(this, listMovies)
+        recyclerViewV.adapter = MovieAdapterVertical(this, listMovie2)
+        recyclerViewV.addItemDecoration(MovieItemDecoration())
 
-        val searchView = findViewById<SearchView>(R.id.searchView)
-        val searchButton = findViewById<Button>(R.id.search_button)
+        searchView = findViewById(R.id.searchView)
+        searchButton = findViewById(R.id.search_button)
         searchButton.setOnClickListener {
             val query = searchView.query.toString()
             performSearch(query)
@@ -99,7 +104,7 @@ class MainActivity : AppCompatActivity() {
 
             if (moviesResult != null) {
                 moviesResult.results.map {
-                    listMovies.add(
+                    listMovie2.add(
                         Movie(
                             it.adult,
                             it.overview,
@@ -114,7 +119,7 @@ class MainActivity : AppCompatActivity() {
                         )
                     )
                 }
-                Log.d("liste film: ", listMovies.toString())
+                Log.d("liste film: ", listMovie2.toString())
             }
         }
         val result = myGlobalVar.await()
@@ -142,25 +147,23 @@ class MainActivity : AppCompatActivity() {
 
             Log.d("Movies : ", moviesResult.toString())
 
-            if (moviesResult != null) {
-                moviesResult.results.map {
-                    listMovies.add(
-                        Movie(
-                            it.adult,
-                            it.overview,
-                            it.release_date,
-                            it.id,
-                            it.original_language,
-                            it.title,
-                            it.popularity,
-                            it.vote_count,
-                            it.vote_average,
-                            it.poster_path
-                        )
+            moviesResult.results.map {
+                listMovies.add(
+                    Movie(
+                        it.adult,
+                        it.overview,
+                        it.release_date,
+                        it.id,
+                        it.original_language,
+                        it.title,
+                        it.popularity,
+                        it.vote_count,
+                        it.vote_average,
+                        it.poster_path
                     )
-                }
-                Log.d("liste film: ", listMovies.toString())
+                )
             }
+            Log.d("liste film: ", listMovies.toString())
         }
         val result = myGlobalVar.await()
         println(result)

@@ -9,12 +9,12 @@
 
     <!-- Créer le composant text par défaut -->
     <style name="DefaultTextStyle">
-        <item name="android:textColor">@color/lightgray</item>
+        <item name="android:textColor">@color/darkgray</item>
         <item name="android:textSize">18sp</item>
-        <item name="android:fontFamily">@font/kanit</item>
-    </style>
+    <!--<item name="android:fontFamily">@font/kanit</item>-->
+</style>
 
-    <!-- Style pour le vote -->
+<!-- Style pour le vote -->
     <style name="VoteStyle">
         <item name="android:textColor">@color/lightgray</item>
         <item name="android:textSize">12sp</item>
@@ -30,6 +30,7 @@
     <style name="DefaultTitleStyle" parent="SubtitleTextStyle">
         <item name="android:textSize">24sp</item>
         <item name="android:textAlignment">center</item>
+        <item name="android:fontFamily">@font/kanit</item>
     </style>
 
     <!-- Créer un style pour la bottom navigation view -->

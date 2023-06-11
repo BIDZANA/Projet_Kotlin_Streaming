@@ -4,118 +4,176 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightgray"
     tools:context=".MainActivity">
 
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="@dimen/itemMarging"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/linearLayout3"
+        android:layout_width="409dp"
+        android:layout_height="429dp"
         android:orientation="vertical"
         android:padding="@dimen/defaultMargin"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:gravity="center_horizontal">
-
-            <TextView
-                android:id="@+id/moviedetails_title_textview"
-                style="@style/DefaultTitleStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center" />
-
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/detailsmovie_view_imageview"
-            android:layout_width="150dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp" />
+        app:layout_constraintTop_toBottomOf="@+id/backButton">
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="216dp">
+            android:layout_height="match_parent">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
 
                 <TextView
+                    android:id="@+id/moviedetails_title_textview"
+                    style="@style/DefaultTitleStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:cardBackgroundColor="@color/background"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/moviedetails_title_textview"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <ImageView
+                        android:id="@+id/detailsmovie_view_imageview"
+                        android:layout_width="197dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/filmexempletwo" />
+
+
+                </androidx.cardview.widget.CardView>
+
+                <ImageButton
+                    android:id="@+id/FavButton"
+                    android:layout_width="119dp"
+                    android:layout_height="47dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_unstar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+                <TextView
+                    android:id="@+id/textView1"
                     style="@style/DefaultTitleStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/details_page_film_overview_title" />
+                    android:layout_margin="@dimen/itemMarging"
+                    android:text="@string/details_page_film_overview_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/FavButton" />
 
                 <TextView
                     android:id="@+id/moviedetails_resume_textview"
                     style="@style/DefaultTextStyle"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
 
                 <TextView
+                    android:id="@+id/textView2"
                     style="@style/DefaultTitleStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/details_page_film_releaseDate_title" />
+                    android:text="@string/details_page_film_releaseDate_title"
+                    app:layout_constraintStart_toStartOf="@+id/textView1"
+                    app:layout_constraintTop_toBottomOf="@+id/moviedetails_resume_textview" />
 
                 <TextView
                     android:id="@+id/moviedetails_date_textview"
                     style="@style/DefaultTextStyle"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@+id/textView1"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="32dp" />
 
                 <TextView
+                    android:id="@+id/textView3"
                     style="@style/DefaultTitleStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/details_page_film_original_language_title" />
+                    android:text="@string/details_page_film_original_language_title"
+                    app:layout_constraintStart_toStartOf="@+id/textView2"
+                    app:layout_constraintTop_toBottomOf="@+id/moviedetails_date_textview" />
 
                 <TextView
                     android:id="@+id/moviedetails_language_textview"
                     style="@style/DefaultTextStyle"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@+id/textView1"
+                    app:layout_constraintTop_toBottomOf="@+id/textView3"
+                    tools:layout_editor_absoluteX="-10dp"
+                    tools:layout_editor_absoluteY="46dp" />
 
                 <TextView
+                    android:id="@+id/textView4"
                     style="@style/DefaultTitleStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/details_page_film_note_title" />
+                    android:text="@string/details_page_film_note_title"
+                    app:layout_constraintStart_toStartOf="@+id/textView1"
+                    app:layout_constraintTop_toBottomOf="@+id/moviedetails_language_textview" />
 
                 <TextView
                     android:id="@+id/moviedetails_note_textview"
                     style="@style/DefaultTextStyle"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    app:layout_constraintStart_toStartOf="@+id/textView1"
+                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </LinearLayout>
         </ScrollView>
 
-        <Button
-            android:id="@+id/FavButton"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_gravity="center"
-            android:background="@color/orange"
-            android:shadowColor="@color/orange"
-            android:text="★"
-            style="@style/DefaultTextStyle" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recommand_movies_recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/suggestions_title"
+        style="@style/DefaultTitleStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/defaultMargin"
+        android:text="@string/a_d_couvrir"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recommand_movies_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/itemMarging"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/suggestions_title" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

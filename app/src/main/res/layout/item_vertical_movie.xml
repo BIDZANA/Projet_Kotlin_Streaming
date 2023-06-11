@@ -22,26 +22,22 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textViewTitle"
+                android:layout_margin="@dimen/itemMarging"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/SubtitleTextStyle"/>
+                style="@style/DefaultTitleStyle"/>
 
             <TextView
                 android:id="@+id/textViewReleaseYear"
+                android:layout_margin="@dimen/itemMarging"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/DefaultTextStyle" />
+                style="@style/SubtitleTextStyle" />
 
-            <TextView
-                android:id="@+id/textViewVoteAverage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/VoteStyle"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

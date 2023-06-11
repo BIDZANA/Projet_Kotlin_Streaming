@@ -1,7 +1,6 @@
 package fr.epf.bidzanafapo
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -12,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.squareup.picasso.Picasso
 import fr.epf.bidzanafapo.adapter.MovieAdapterVertical
 import fr.epf.bidzanafapo.network.MovieApiService
@@ -50,7 +48,8 @@ class MovieDetailsActivity : AppCompatActivity() {
         recyclerView.layoutManager = GridLayoutManager(this, GridLayoutManager.VERTICAL)
         recyclerView.adapter = MovieAdapterVertical(this@MovieDetailsActivity, RecommandationList)
 
-        val favoriteButton = findViewById<Button>(R.id.FavButton)
+        val backButton = findViewById<ImageView>(R.id.backButton)
+        val favoriteButton = findViewById<ImageView>(R.id.FavButton)
         val title = findViewById<TextView>(R.id.moviedetails_title_textview)
         val resume = findViewById<TextView>(R.id.moviedetails_resume_textview)
         val date = findViewById<TextView>(R.id.moviedetails_date_textview)
@@ -76,26 +75,26 @@ class MovieDetailsActivity : AppCompatActivity() {
         }
         Recommandations()
 
-        val navigationBar = findViewById<BottomNavigationView>(R.id.navigation_bar_view)
-        navigationBar.setOnNavigationItemSelectedListener {
-            when (it.itemId) {
-                R.id.favorite_page -> {
-                    this.startActivity(Intent(this, FavoriteActivity::class.java))
-                    return@setOnNavigationItemSelectedListener true
-                }
-
-                R.id.home_page -> {
-                    this.startActivity(Intent(this, MainActivity::class.java))
-                    return@setOnNavigationItemSelectedListener true
-                }
-
-                R.id.scanner_page -> {
-                    this.startActivity(Intent(this, QRCodeActivity::class.java))
-                    return@setOnNavigationItemSelectedListener true
-                }
-            }
-            true
+        backButton.setOnClickListener{
+            this@MovieDetailsActivity.finish()
         }
+
+        /*
+        val home = findViewById<BottomNavigationView>(R.id.home_page)
+        val favorites = findViewById<BottomNavigationView>(R.id.favorite_page)
+        val scanner = findViewById<BottomNavigationView>(R.id.scanner_page)
+        home.setOnClickListener{
+            val intent = Intent(this@MovieDetailsActivity, MainActivity::class.java)
+            startActivity(intent)
+        }
+        favorites.setOnClickListener{
+            val intent = Intent(this@MovieDetailsActivity, FavoriteActivity::class.java)
+            startActivity(intent)
+        }
+        scanner.setOnClickListener{
+            val intent = Intent(this@MovieDetailsActivity, QRCodeActivity::class.java)
+            startActivity(intent)
+        }*/
     }
 
     @OptIn(DelicateCoroutinesApi::class)

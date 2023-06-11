@@ -42,11 +42,9 @@ class MovieAdapterVertical(val activity: Context, val movieList: List<Movie>) :
 
         val titre = view.findViewById<TextView>(R.id.textViewTitle)
         val release = view.findViewById<TextView>(R.id.textViewReleaseYear)
-        val note = view.findViewById<TextView>(R.id.textViewVoteAverage)
 
         titre.text = movie.title
         release.text = movie.release_date
-        note.text = movie.vote_average.toString() + "/10"
         Picasso.get()
             .load(posterUrl)
             .into(affiche)

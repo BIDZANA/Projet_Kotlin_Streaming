@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import fr.epf.bidzanafapo.adapter.MovieAdapterVertical
+import fr.epf.bidzanafapo.adapter.MovieItemDecoration
 import fr.epf.bidzanafapo.network.MovieApiService
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
@@ -34,6 +35,7 @@ class FavoriteActivity : AppCompatActivity() {
             LinearLayoutManager(this, GridLayoutManager.VERTICAL, false)
         recyclerView.layoutManager = GridLayoutManager(this, GridLayoutManager.VERTICAL)
         recyclerView.adapter = MovieAdapterVertical(this@FavoriteActivity, listefav)
+        recyclerView.addItemDecoration(MovieItemDecoration())
         recupererFavoris()
         Log.d("Movie search main: ", listefav.toString())
         recyclerView.adapter?.notifyDataSetChanged()
